@@ -1,6 +1,6 @@
 import React from "react";
 import "../index.css";
-
+import { useNavigate } from "react-router-dom";
 import coverImage from "../utilities/bscover.png";
 import captionImage from "../utilities/bscaption.png";
 import gifFile from "../utilities/bsgif.gif";
@@ -32,6 +32,12 @@ const sampleBooks = [
 ];
 
 const Body = () => {
+  const navigate = useNavigate();
+  const handleSeeMore = (category) => {
+    navigate("/all-books", {
+      state: { category },
+    });
+  };
   return (
     <main className="body-container">
 
@@ -54,10 +60,10 @@ const Body = () => {
 
       {/* -------- BODY SECTION 2 -------- */}
       <div className="body-section2">
-        <button>All Books</button>
+        <button onClick={() => navigate("/all-books/view")}>All Books</button>
         <button>Add Book</button>
-        <button>Edit Book Details</button>
-        <button>Delete Book</button>
+        <button onClick={() => navigate("/all-books/edit")}>Edit Book Details</button>
+        <button onClick={() => navigate("/all-books/delete")}>Delete Book</button>
       </div>
 
       {/* -------- BODY SECTION 3 -------- */}
@@ -68,6 +74,7 @@ const Body = () => {
               key={index}
               title={category}
               books={sampleBooks}
+              onSeeMore={handleSeeMore}
             />
           ))}
         </div>
@@ -78,6 +85,7 @@ const Body = () => {
               key={index}
               title={category}
               books={sampleBooks}
+              onSeeMore={handleSeeMore}
             />
           ))}
         </div>

@@ -189,14 +189,17 @@ body {
 
 .book-strip {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 14px;
   background-color: white;
-  padding: 14px 16px;
+  padding: 16px 18px;
   border-radius: 12px;
-  min-height: 90px;
+  min-height: 100px;
+  width: 100%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  position: relative;
 }
+
 .book-cover {
   width: 60px;
   height: 80px;
@@ -204,7 +207,9 @@ body {
   border-radius: 6px;
   flex-shrink: 0;
 }
+
 .book-info {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -216,12 +221,57 @@ body {
   color: #222;
 }
 
-.book-author,
-.book-publisher {
+.book-meta {
   font-size: 13px;
   color: #555;
+  line-height: 1.4;
+  white-space: normal;
+  word-break: break-word;
+}
+.book-description {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+.book-action-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border: none;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
 }
 
+/* Edit */
+.edit-btn {
+  background-color: #74c478;
+  color: white;
+}
+
+/* Delete */
+.delete-btn {
+  background-color: #ee6d6b;
+  color: white;
+}
+
+.book-action-btn:hover {
+  opacity: 0.85;
+}
+
+.all-books-heading {
+  text-align: center;
+  margin: 20px 0 30px;
+  font-size: 24px;
+  color: rgb(20, 21, 88);
+}
 .see-more-btn {
   margin-top: 10px;
   align-self: flex-start;
@@ -253,7 +303,7 @@ body {
 }
 
 .category-page-title {
-  background-color: rgb(199, 218, 221);
+  background-color: rgb(236, 218, 226);
   padding: 14px 20px;
   border-radius: 16px;
   font-size: 20px;
@@ -261,17 +311,235 @@ body {
   margin-bottom: 25px;
 }
 
-.category-book-list {
+.category-book-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.all-books-page {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 20px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
+}
+.accordion-title {
+  background-color: rgb(236, 218, 226);
+  padding: 16px 22px;
+  border-radius: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  color: rgb(20, 21, 88);
+  transition: background-color 0.2s ease;
 }
 
-.book-description {
-  font-size: 13px;
-  color: #666;
-  margin-top: 6px;
+.accordion-title:hover {
+  background-color: rgb(218, 171, 192);
 }
+.accordion-content {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.accordion-card {
+  scroll-margin-top: 90px;
+}
+
+/* ---------- MODAL OVERLAY ---------- */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* ---------- MODAL BOX ---------- */
+
+.delete-modal {
+  background: white;
+  width: 350px;
+  max-width: 90%;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: popup 0.2s ease-in-out;
+}
+
+/* Animation */
+@keyframes popup {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Modal text */
+
+.delete-modal h3 {
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.delete-modal p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+/* ---------- MODAL BUTTONS ---------- */
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.modal-btn {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Cancel */
+.cancel-btn {
+  background: #ccc;
+  color: #333;
+}
+
+.cancel-btn:hover {
+  background: #b0b0b0;
+}
+
+/* Confirm */
+.confirm-btn {
+  background: #e75755;
+  color: white;
+}
+
+.confirm-btn:hover {
+  background: #c53a3a;
+}
+
+/* ---------- EDIT MODAL ---------- */
+
+.edit-modal {
+  background: white;
+  width: 700px;
+  max-width: 95%;
+  padding: 25px;
+  border-radius: 15px;
+  display: flex;
+  gap: 25px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+/* LEFT SIDE */
+
+.edit-left {
+  width: 180px;
+  text-align: center;
+}
+
+.edit-cover {
+  width: 100%;
+  height: 220px;
+  background: #ddd;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.change-cover-btn {
+  width: 100%;
+  padding: 6px;
+  font-size: 13px;
+  border: none;
+  border-radius: 6px;
+  background: #c7dadd;
+  cursor: pointer;
+}
+
+.change-cover-btn:hover {
+  background: #b0cfd4;
+}
+
+/* RIGHT SIDE */
+
+.edit-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.edit-right input,
+.edit-right textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.edit-right textarea {
+  resize: none;
+}
+
+/* BUTTONS */
+
+.edit-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.discard-btn {
+  background: #ccc;
+  border: none;
+  padding: 7px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.save-btn {
+  background: #43a047;
+  color: white;
+  border: none;
+  padding: 7px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.save-btn:hover {
+  background: #388e3c;
+}
+
+.discard-btn:hover {
+  background: #b0b0b0;
+}
+
 
 /* ---------------- RESPONSIVE ---------------- */
 
@@ -321,6 +589,10 @@ body {
     align-items: center;
     gap: 8px;
   }
+
+  .category-book-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 480px) {
@@ -341,5 +613,8 @@ body {
   }
   .body-section3 {
     flex-direction: column;
+  }
+  .accordion-content {
+    grid-template-columns: 1fr;
   }
 }

@@ -13,16 +13,16 @@ const CategoryPage = () => {
       </div>
 
       {/* Book list */}
-      <div className="category-book-list">
-        {Array.from({ length: 10 }).map((_, index) => (
+      {/* <div className="category-book-list"> */}
+      <div className="category-book-grid">
+        {Array.from({ length: 20 }).map((_, index) => (
           <div className="book-strip" key={index}>
             <div className="book-cover"></div>
 
             <div className="book-info">
               <div className="book-title">Book Title</div>
-              <div className="book-author">By – Author Name</div>
-              <div className="book-publisher">
-                Published by – Publisher Name
+              <div className="book-meta">
+                  By – Author Name, Published by – Publisher Name (DD/MM/YYYY)
               </div>
               <div className="book-description">
                 Short overview of the book content goes here.

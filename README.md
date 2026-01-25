@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-Netlify Deployment - bim-system.netlify.app
+Netlify Deployment - [bim-system.netlify.app]
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

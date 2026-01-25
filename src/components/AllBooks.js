@@ -225,9 +225,7 @@ const AllBooks = () => {
 
             {/* LEFT */}
             <div className="edit-left">
-
               <div className="edit-cover"></div>
-
               <button className="change-cover-btn">
                 Change Book Cover
               </button>

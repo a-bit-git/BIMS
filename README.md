@@ -10,43 +10,43 @@ This Bookstore Management System is a web-based application developed as part of
 
 ✅ Key Features & Implementation Details
 
-The project is built using React.js with functional components and hooks.
+➤ The project is built using React.js with functional components and hooks.
 
-No external API or backend service was used because the assignment did not provide any API links or data sources.
+➤ No external API or backend service was used because the assignment did not provide any API links or data sources.
 
-The application includes the following main modules:
+➤ The application includes the following main modules:
 
-View All Books – Displays books category-wise using accordion layout.
+➤ View All Books – Displays books category-wise using accordion layout.
 
-Add Book – Allows users to add new books using a popup modal.
+➤ Add Book – Allows users to add new books using a popup modal.
 
-Edit Book Details – Enables editing book information through a modal window.
+➤ Edit Book Details – Enables editing book information through a modal window.
 
-Delete Book – Provides confirmation-based deletion.
+➤ Delete Book – Provides confirmation-based deletion.
 
-Reusable modal components are used to avoid code repetition.
+➤ Reusable modal components are used to avoid code repetition.
 
-Categories are organized into predefined lists for better structure.
+➤ Categories are organized into predefined lists for better structure.
 
-Navigation is handled using React Router.
+➤ Navigation is handled using React Router.
 
-The UI is designed to be simple, responsive, and user-friendly.
+➤ The UI is designed to be simple, responsive, and user-friendly.
 
-Proper validation and form layout are implemented for book details.
+➤ Proper validation and form layout are implemented for book details.
 
-GitHub is used for version control and project management.
+➤ GitHub is used for version control and project management.
 
 📝 Assignment Compliance
 
-This project has been developed by strictly following the assignment guidelines:
+➤ This project has been developed by strictly following the assignment guidelines:
 
-All required pages and features have been implemented.
+➤ All required pages and features have been implemented.
 
-No API integration was done as no backend or data source was provided.
+➤ No API integration was done as no backend or data source was provided.
 
-Clean folder structure and readable code practices are followed.
+➤ Clean folder structure and readable code practices are followed.
 
-Proper commit history is maintained using Git.
+➤ Proper commit history is maintained using Git.
 
 ## Available Scripts
 

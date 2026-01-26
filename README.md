@@ -4,6 +4,50 @@ Netlify Deployment - [https://bim-system.netlify.app]
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+📘 Project Description
+
+This Bookstore Management System is a web-based application developed as part of an assessment assignment. The objective of this project was to design and implement a functional bookstore interface that allows users to view, add, edit, and manage book records efficiently. Since the assignment did not provide any external API, database, or data source, the application was developed using static and dummy data to demonstrate functionality, structure, and user interaction. The project focuses on clean UI design, modular React components, and proper navigation to fulfill all requirements mentioned in the assignment.
+
+✅ Key Features & Implementation Details
+
+The project is built using React.js with functional components and hooks.
+
+No external API or backend service was used because the assignment did not provide any API links or data sources.
+
+The application includes the following main modules:
+
+View All Books – Displays books category-wise using accordion layout.
+
+Add Book – Allows users to add new books using a popup modal.
+
+Edit Book Details – Enables editing book information through a modal window.
+
+Delete Book – Provides confirmation-based deletion.
+
+Reusable modal components are used to avoid code repetition.
+
+Categories are organized into predefined lists for better structure.
+
+Navigation is handled using React Router.
+
+The UI is designed to be simple, responsive, and user-friendly.
+
+Proper validation and form layout are implemented for book details.
+
+GitHub is used for version control and project management.
+
+📝 Assignment Compliance
+
+This project has been developed by strictly following the assignment guidelines:
+
+All required pages and features have been implemented.
+
+No API integration was done as no backend or data source was provided.
+
+Clean folder structure and readable code practices are followed.
+
+Proper commit history is maintained using Git.
+
 ## Available Scripts
 
 In the project directory, you can run:

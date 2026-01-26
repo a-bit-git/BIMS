@@ -12,7 +12,7 @@ This Bookstore Management System is a web-based application developed as part of
 
 ➤ The project is built using React.js with functional components and hooks.
 
-➤ No external API or backend service was used because the assignment didn't provide any API links or data sources.
+➤ No API or backend service was used because the assignment did not provide any API links or data sources.
 
 ➤ The application includes the following main modules:
 

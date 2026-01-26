@@ -15,15 +15,9 @@ const CategoryCard = ({ title, onSeeMore }) => {
             <div className="book-cover"></div>
 
             <div className="book-info">
-              <div className="book-title">Book Title</div>
-
-              <div className="book-author">
-                By – Author Name, Published by – Publisher Name (DD/MM/YYYY)
-              </div>
-
-              <div className="book-description">
-                Book description goes here. This will be limited to two lines.
-              </div>
+              <div className="book-title">Book Title, By – Author Name</div>
+              <div className="book-meta">Published by – Publisher Name (DD/MM/YYYY)</div>
+              <div className="book-description">Book description goes here</div>
             </div>
 
           </div>

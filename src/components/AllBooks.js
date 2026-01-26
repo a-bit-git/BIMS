@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useParams, useLocation } from "react-router-dom";
+import BookModal from "./BookModal";
 import "../index.css";
 
 const categories = [
@@ -101,7 +102,7 @@ const AllBooks = () => {
       <h2 className="all-books-heading">
         {mode === "edit" && "Edit Books"}
         {mode === "delete" && "Delete Books"}
-        {mode === "view" && "All Books"}
+        {(mode === "view" || !mode) && "All Books"}
       </h2>
 
       {/* ---------- BOOK CATEGORIES ---------- */}
@@ -132,19 +133,12 @@ const AllBooks = () => {
                   <div className="book-cover"></div>
 
                   <div className="book-info">
-
-                    <div className="book-title">
-                      Book Title
-                    </div>
-
-                    <div className="book-meta">
-                      By – Author, Publisher (DD/MM/YYYY)
-                    </div>
-
-                    <div className="book-description">
-                      Book description goes here...
-                    </div>
-
+                    {/* Title + Author (same line) */}
+                    <div className="book-title">Book Title, By – Author Name</div>
+                    {/* Publisher + Date (next line) */}
+                    <div className="book-meta">Published by – Publisher Name (DD/MM/YYYY)</div>
+                    {/* Description */}
+                    <div className="book-description">Book description goes here...</div>
                   </div>
 
                   {/* EDIT BUTTON */}
@@ -217,63 +211,12 @@ const AllBooks = () => {
       )}
 
       {/* ---------- EDIT MODAL ---------- */}
-      {showEditModal && (
-
-        <div className="modal-overlay">
-
-          <div className="edit-modal">
-
-            {/* LEFT */}
-            <div className="edit-left">
-              <div className="edit-cover"></div>
-              <button className="change-cover-btn">
-                Change Book Cover
-              </button>
-
-            </div>
-
-            {/* RIGHT */}
-            <div className="edit-right">
-
-              <input type="text" placeholder="Book Title" />
-
-              <input type="text" placeholder="Author Name" />
-
-              <input type="text" placeholder="Publisher Name" />
-
-              <input type="date" />
-
-              <textarea
-                placeholder="Book Description"
-                rows="3"
-              ></textarea>
-
-
-              <div className="edit-actions">
-
-                <button
-                  className="discard-btn"
-                  onClick={closeEditModal}
-                >
-                  Discard
-                </button>
-
-                <button
-                  className="save-btn"
-                  onClick={saveEdit}
-                >
-                  Save
-                </button>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      )}
+      <BookModal
+        show={showEditModal}
+        onClose={closeEditModal}
+        onSave={saveEdit}
+        coverButtonText="Change Book Cover"
+      />
 
     </div>
   );

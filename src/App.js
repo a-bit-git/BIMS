@@ -21,7 +21,6 @@ function App() {
         <Route path="/category/:categoryName" element={<CategoryPage />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/all-books" element={<AllBooks />} />
         <Route path="/all-books/:mode" element={<AllBooks />} />
       </Routes>
 
